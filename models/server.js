@@ -1,6 +1,7 @@
 const cors = require('cors')
 const express = require('express')
 const fileUpload= require('express-fileupload')
+const { db } = require('../database/db')
 
 class Server {
     constructor(arg){
@@ -11,8 +12,14 @@ class Server {
         this.routes()
         this.run(arg)            
     }
-    db_upload(){
-        console.log("DB Online")
+    async db_upload (){
+        try{
+            await db.authenticate()
+            console.log("Base de datos Online")
+        }catch(err){
+            // console.log(err)
+            throw new Error(err)
+        }
     }
     middlewares(){
         // Configuracion del Cors
