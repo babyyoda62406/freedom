@@ -8,7 +8,7 @@ class Server {
         this.app = express()
         this.port = arg 
         this.middlewares()
-        this.db_upload()
+        // this.db_upload()
         this.routes()
         this.run(arg)            
     }
@@ -25,7 +25,7 @@ class Server {
         // Configuracion del Cors
         this.app.use(cors())
         // Captura de rutas privadas
-
+        
         // Directorio publico
         this.app.use(express.static('public'))
         // Lectura y parseo del body
@@ -38,6 +38,8 @@ class Server {
         }))
     }
     routes(){
+        // Redireccionamiento => User
+        this.app.get('/'  , (req , res)=>{res.redirect('user')})
         // User
             // Get
 
