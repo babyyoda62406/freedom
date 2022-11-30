@@ -33,10 +33,14 @@
     .dtm-ct-card .dtm-divider{
         grid-column: 1/2    ;
     }
+    .carousel-inner{
+        height: 400px !important;
+    }
 }
 
 @media  (max-width: 515px) {
     .p-4{
         padding: 0px !important;
     }
+    
 }
